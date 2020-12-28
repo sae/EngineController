@@ -1,0 +1,60 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+    <META id="META" name="viewport" content="width=device-width; initial-scale=1.0" >
+    <style>
+       body {
+            font-family:Verdana,sans-serif;
+            font-size:1em;
+        }
+       .textv {
+        display:inline-block;
+        width:auto; 
+        text-align: middle;
+        border: 1px solid black;
+        margin: 3pt;
+        padding: 3pt;
+       }
+       #hdr {
+        font-size: 150%;
+       }
+       .chart {
+        width:90%; height: 200;
+       }
+    </style>
+    <title>Motor</title>
+  </head>
+  <body>
+    <div id="hdr">Motor</div>
+    
+    <div id="currents">
+        <div id="temp" class="textv"></div>
+        <div id="volt" class="textv"></div>
+        <div id="rpm" class="textv"></div>
+        <div id="fuel" class="textv"></div>
+        <a href="motor1.html">gui</a>
+    </div>
+    
+  </body>
+<script>
+var url="";
+
+async function getAll(){
+	resp= await fetch(url+"/all");
+	if (!resp.ok) {
+		console.log("error fetch");
+		return;
+	}
+	 var all=await resp.json();
+	 document.getElementById("fuel").innerText="fuel: "+all.l; //расстояние до поверхности. уровень = h-all.l/h*100% (h-уровень полного бака)
+	 document.getElementById("temp").innerText="t: "+all.t;
+	 document.getElementById("rpm").innerText="rpm: "+all.r;
+	 u=parseFloat(all.u)/266*4.9; //измеряем вольтметром V, смотрим присылаемую величину K, реальное значение = all.u/K*V 
+	document.getElementById("volt").innerText=u.toFixed(1)+" V";    
+}
+
+getAll();
+</script>
+</html>

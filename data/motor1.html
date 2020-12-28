@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <META HTTP-EQUIV="CONTENT-TYPE" CONTENT="text/html; charset=utf-8">
+    <META id="META" name="viewport" content="width=device-width, initial-scale=1.0" >
+    <style>
+		body {
+			padding: 0px; margin:0px;
+			overflow: hidden; /* Hide scrollbars */
+		}
+    	#_r1 {
+			width: 100%;
+			_position: absolute;
+			_border: 1px solid;
+		}
+		#dr {
+			width:98%;
+			height: 98%;
+			position: absolute;
+			top:0; left:0;
+			
+		}
+    	#dv {
+			width: 45%;
+			height: 45%;
+			position: absolute;
+			top: 55%; left: 3%;
+			border: 0px solid;
+		}
+    	#dt {
+			width: 45%;
+			height: 45%;
+			position: absolute;
+			top: 55%; left:28%;
+			border: 0px solid;
+		}
+    	#df {
+			width: 20%; 
+			height: 35%;
+			position: absolute;
+			top: 56%; left:78%;
+			border: 0px solid;
+		}
+		#dmh {
+			width: 20%; height1: 13%;
+			position: absolute;
+			top: 83%; left: 39%;
+			border: 2px solid gray;
+			border-radius: 5px;
+			padding: 5px;
+			;margin-left: auto;
+			text-align: center;
+		}
+		#dvv {
+			width: 17%; height1:13%;
+			position: absolute;
+			top: 83%; left: 10%;
+			border: 2px solid gray;
+			border-radius: 5px;
+			padding: 5px;
+			;margin-left: auto;
+			text-align: center;
+		}
+		#dstat {
+			position: absolute;
+			top: 3%; left: 3%;
+			width: 36px; height: 36px;
+			border: 1px solid gray;
+			border-radius: 18px;
+			background-color: #DDDD22;
+		}
+	</style>
+    <script src="gauge.min.js"></script>
+    <title>Motor 1</title>
+  </head>
+<body>
+	<div id="d1">
+	<div id="dr"><canvas id="r1"></canvas></div>
+	<div id="dv"><canvas id="v1"></canvas></div>
+	<div id="df"><canvas id="f1"></canvas></div>
+	<div id="dt"><canvas id="t1"></canvas></div>
+	<div id="dmh">325 mhr</div>
+	<div id="dvv">0 V</div>
+	<div id="dstat" onClick="window.location.reload();"> </div>
+	</div>
+</body>
+<script src="motor.js">
+</script>
+</html>
